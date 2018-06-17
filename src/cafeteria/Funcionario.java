@@ -1,79 +1,47 @@
 package cafeteria;
-
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Funcionario {
-	private String usuario;
-	private String senha;
-	private String nome;
-	private int tipo;
+public class Funcionario extends Pessoa {
 	private double salario;
-	private ArrayList<Boolean> comparecimentos;
-	private ArrayList<LocalDateTime> diasDeTrabalho;
-	private boolean alerta;
-	
-	public Funcionario(String nome, int tipo, double salario) {
-		this.alerta = false;
-		this.tipo = tipo;
+	private int numeroAlertas;
+	private ArrayList <String> alertas;
+	private ArrayList <LocalDate> diasDeTrabalho;
+	public Funcionario(String nome, double salario) {
 		this.nome = nome;
 		this.salario = salario;
-		this.comparecimentos = new ArrayList<Boolean>();
-		this.diasDeTrabalho = new ArrayList<LocalDateTime>();
+		this.numeroAlertas = 0;
 	}
-	
-	public void avisarChegada() {
-		this.diasDeTrabalho.add(LocalDateTime.now());
-		this.comparecimentos.add(true);
-	}
-	
-	public void receberAlertaGerente(String alerta) {
-		if (this.alerta == false) {
-			System.out.println(alerta);
-			this.alerta = true;
-		}
-	}
-	
-	public void invalidarPedido(ArrayList<NotasFiscais> NFS, int k) {
-		NFS.remove(k);
-	}
-	
-	public int pegarQuantidadeEstoque(Produto produto) {	
-		int res = produto.getQuantidadeDoProduto();
-		return res;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public double getSalario() {
 		return salario;
 	}
-
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
-
-	public int getTipo() {
-		return tipo;
+	public int getNumeroAlertas() {
+		return numeroAlertas;
 	}
-
-	public void setTipo(int tipo) {
-		this.tipo = tipo;
+	public int pegarQuantidadeEstoque(Produto produto) {
+		return Controlador.listarProdutos().get(Controlador.buscarProduto(produto.getNome())).getQuantidadeDoProduto();
 	}
-
-	public boolean isAlerta() {
-		return alerta;
+	public void avisarChegada() {
+		if (diasDeTrabalho.contains(LocalDate.now())) {
+			this.diasDeTrabalho.add(LocalDate.now());
+		}
 	}
-
-	public void setAlerta(boolean alerta) {
-		this.alerta = alerta;
+	public void receberAlertaGerente(String alerta) {
+		this.numeroAlertas++;
+		this.alertas.add(alerta);
 	}
-	
-	
+	public String pegarAlerta(int alerta) {
+		if (this.numeroAlertas > 0) {
+			return this.alertas.get(alerta);
+		}
+		return "";
+	}
+	public void apagarAlerta(int alerta) {
+		if (this.numeroAlertas > 0) {
+			this.alertas.remove(alerta);
+		}
+	}
 }

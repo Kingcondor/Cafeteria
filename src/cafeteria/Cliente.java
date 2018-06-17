@@ -3,34 +3,23 @@ package cafeteria;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Cliente {
-	private String usario;
-	private String senha;
-	private String nome;
+public class Cliente extends Pessoa {
 	private ArrayList<String> atendentes;
-	private ArrayList<NotasFiscais> NF;
+	private ArrayList<NotaFiscal> NF;
 	
 	public Cliente(String nome) {
 		this.nome = nome;
 		this.atendentes = new ArrayList<String>();
-		this.NF = new ArrayList<NotasFiscais>();
+		this.NF = new ArrayList<NotaFiscal>();
 	}
 	
 	public void fazerPedido(Funcionario atendente, Cliente cliente, double valor) {
-		NotasFiscais NF = new NotasFiscais(cliente);
+		NotaFiscal NF = new NotaFiscal(cliente);
 		NF.setValor(valor);
 		this.atendentes.add(atendente.getNome());
 		NF.setCliente(cliente);
 		NF.setHorarioDoPagamento(LocalDateTime.now());
 		this.NF.add(NF);
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
 	}
 
 	public ArrayList<String> getAtendentes() {
@@ -41,15 +30,17 @@ public class Cliente {
 		this.atendentes = atendentes;
 	}
 
-	public ArrayList<NotasFiscais> getNF() {
+	public ArrayList<NotaFiscal> getNF() {
 		return NF;
 	}
 
-	public void setNF(ArrayList<NotasFiscais> nF) {
+	public void setNF(ArrayList<NotaFiscal> nF) {
 		NF = nF;
 	}
-	
-	
-	
-	
+	public boolean equals(Cliente cliente) {
+		if (this.nome.equals(cliente.getNome())) {
+			return true;
+		}
+		return false;
+	}
 }
