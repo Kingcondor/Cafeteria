@@ -7,8 +7,9 @@ public class Cliente extends Pessoa {
 	private ArrayList<String> atendentes;
 	private ArrayList<NotaFiscal> NF;
 	
-	public Cliente(String nome) {
+	public Cliente(String nome, String senha) {
 		this.nome = nome;
+		this.senha = senha;
 		this.atendentes = new ArrayList<String>();
 		this.NF = new ArrayList<NotaFiscal>();
 	}

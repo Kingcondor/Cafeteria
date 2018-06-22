@@ -3,6 +3,7 @@ package cafeteria;
 public abstract class Pessoa {
 	protected String nome;
 	protected String senha;
+	protected boolean verificacaoDePrimeiraVez;
 	public String getNome() {
 		return nome;
 	}
@@ -15,4 +16,8 @@ public abstract class Pessoa {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public void setVerificacaoDePrimeiraVez(boolean verificacaoDePrimeiraVez) {
+		this.verificacaoDePrimeiraVez = verificacaoDePrimeiraVez;
+	}
+	
 }

@@ -2,11 +2,11 @@ package cafeteria;
 import java.util.ArrayList;
 
 public class Controlador {
-	private static ArrayList<Cafeteria> cafeterias;
-	private static ArrayList<Produto> produtos;
-	private static ArrayList<Funcionario> funcionarios;
-	private static ArrayList<Cliente> clientes;
-	private static ArrayList<NotaFiscal> notasFiscais;
+	private static ArrayList<Cafeteria> cafeterias = new ArrayList<>();
+	private static ArrayList<Produto> produtos = new ArrayList<>();
+	private static ArrayList<Funcionario> funcionarios = new ArrayList<>();
+	private static ArrayList<Cliente> clientes = new ArrayList<>();
+	private static ArrayList<NotaFiscal> notasFiscais = new ArrayList<>();
 	
 	public static ArrayList<Cafeteria> listarCafeterias() {
 		return cafeterias;
@@ -62,8 +62,8 @@ public class Controlador {
 	public static ArrayList<Cliente> listarClientes() {
 		return clientes;
 	}
-	public static void adicionarCliente(String nome) {
-		clientes.add(new Cliente(nome));
+	public static void adicionarCliente(String nome,String senha) {
+		clientes.add(new Cliente(nome,senha));
 	}
 	public static void tirarCliente(String nome) {
 		clientes.remove(buscarCliente(nome));
@@ -89,7 +89,7 @@ public class Controlador {
 	}
 	public static int buscarProduto(String nome) {
 		for (int i = 0; i<produtos.size(); i++) {
-			if (produtos.get(i).getNome().equals(nome)) {
+			if (produtos.get(i).getNome().equalsIgnoreCase(nome)) {
 				return i;
 			}
 		}
@@ -127,4 +127,17 @@ public class Controlador {
 		}
 		return -1;
 	}
+	public static ArrayList<Produto> getProdutos() {
+		return produtos;
+	}
+	public static void setProdutos(ArrayList<Produto> produtos) {
+		Controlador.produtos = produtos;
+	}
+	public static ArrayList<Cliente> getClientes() {
+		return clientes;
+	}
+	public static void setClientes(ArrayList<Cliente> clientes) {
+		Controlador.clientes = clientes;
+	}
+	
 }

@@ -3,6 +3,7 @@ package cafeteria;
 public class Gerente extends Funcionario {
 	public Gerente (String nome, double salario) {
 		super (nome, salario);
+		this.setTipo("Gerente");;
 	}
 	public void contratar(String nome, double salario) {
 		Controlador.adicionarFuncionario(nome, salario);
@@ -17,7 +18,7 @@ public class Gerente extends Funcionario {
 		return Controlador.getFuncionario(nome).getSalario();
 	}
 	public void emitirAlerta(String nome, String alerta) {
-		if (nome == "Todos") {
+		if (nome.equalsIgnoreCase("Todos")) {
 			for (int i=0; i<Controlador.pegarNumeroFuncionarios(); i++) {
 				Controlador.getFuncionario(i).receberAlertaGerente(alerta);
 			}

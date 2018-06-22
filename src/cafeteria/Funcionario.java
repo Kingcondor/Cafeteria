@@ -7,10 +7,16 @@ public class Funcionario extends Pessoa {
 	private int numeroAlertas;
 	private ArrayList <String> alertas;
 	private ArrayList <LocalDate> diasDeTrabalho;
+	private String tipo;
+	
 	public Funcionario(String nome, double salario) {
 		this.nome = nome;
 		this.salario = salario;
+		this.verificacaoDePrimeiraVez = true;
 		this.numeroAlertas = 0;
+		this.tipo = "Normal";
+		this.alertas = new ArrayList<>();
+		this.diasDeTrabalho = new ArrayList<>();
 	}
 	public double getSalario() {
 		return salario;
@@ -44,4 +50,27 @@ public class Funcionario extends Pessoa {
 			this.alertas.remove(alerta);
 		}
 	}
+	public String getTipo() {
+		return tipo;
+	}
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+	public ArrayList<String> getAlertas() {
+		return alertas;
+	}
+	public void setAlertas(ArrayList<String> alertas) {
+		this.alertas = alertas;
+	}
+	public ArrayList<LocalDate> getDiasDeTrabalho() {
+		return diasDeTrabalho;
+	}
+	public void setDiasDeTrabalho(ArrayList<LocalDate> diasDeTrabalho) {
+		this.diasDeTrabalho = diasDeTrabalho;
+	}
+	public void setNumeroAlertas(int numeroAlertas) {
+		this.numeroAlertas = numeroAlertas;
+	}
+	
+	
 }

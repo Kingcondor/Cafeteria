@@ -2,11 +2,11 @@ package cafeteria;
 
 public class Cafeteria {
 	private String nome;
-	private String endereco[] = new String[5];
+	private String endereco;
 	private String numeroTelefone;
 	public Cafeteria(String nome, String endereco, String numeroTelefone) {
 		this.nome = nome;
-		this.setEndereco(endereco);
+		this.endereco = endereco;
 		this.numeroTelefone = numeroTelefone;
 	}
 	public String getNome() {
@@ -15,11 +15,11 @@ public class Cafeteria {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String[] getEndereco() {
+	public String getEndereco() {
 		return this.endereco;
 	}
 	public void setEndereco(String endereco) {
-		this.endereco = endereco.split("/[(?: - )(?:, )]/");
+		this.endereco = endereco;
 	}
 	public String getNumeroTelefone() {
 		return this.numeroTelefone;

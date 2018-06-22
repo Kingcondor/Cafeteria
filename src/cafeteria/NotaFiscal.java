@@ -46,4 +46,13 @@ public class NotaFiscal {
 	public String toString() {
 		return "O cliente "+ this.cliente.getNome()+ " fez uma compra no valor de "+ this.valor+ " no horario: "+ this.horarioDoPagamento + ".";
 	}
+
+	public ArrayList<Produto> getProdutosComprados() {
+		return produtosComprados;
+	}
+
+	public void setProdutosComprados(ArrayList<Produto> produtosComprados) {
+		this.produtosComprados = produtosComprados;
+	}
+	
 }
