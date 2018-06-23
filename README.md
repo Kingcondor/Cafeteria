@@ -2,13 +2,13 @@
 1. Caio Giovanni Pereira Vasconcelos
 2. Caio Luna Farias
 
-##Nome do projeto: 
+<b>Nome do projeto:</b>
       Cafeteria
      
-##Repositório de código no GITHUB:
+<b>Repositório de código no GITHUB:</b>
 https://github.com/Kingcondor/Cafeteria.git
 
-##Descrição geral do projeto
+<b>Descrição geral do projeto</b>
 
 Cafeteria é um programa que visa ser um banco de dados das operações para o estabelecimento, visando o uso do consumidor e do administrador de maneiras distintas, sendo seus modos de operar divididos em três grupos de usuários:
 
@@ -26,8 +26,10 @@ Estoque: Entidade que contabiliza a quantidade de produtos disponíveis para ven
 
 Produto: Objeto a ser vendido pela classe funcionário para a classe cliente, está classe tem um valor, um nome e uma descrição;
 
-Requisitos do projeto
-Lista de requisitos
+<b>Requisitos do projeto</b>
+
+<b>Lista de requisitos</b>
+
 REQ1. O sistema será separado em três tipos de usuários: Gerente, cliente e funcionários (Primários e secundários);
 
 REQ2. O sistema terá como entrada para o usuário a utilização de login e de uma senha registrados pelo usuário no momento do cadastro, podendo ser modificado;
