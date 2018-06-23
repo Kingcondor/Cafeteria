@@ -15,11 +15,16 @@ public class Cafeteria {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String[] getEndereco() {
-		return this.endereco;
+	public StringBuilder getEndereco() {
+		StringBuilder endereco = new StringBuilder(this.endereco[0] + ", ");
+		for (int i = 1; i < 4; i++) {
+			endereco.append(this.endereco[i] + " - ");
+		}
+		endereco.append(this.endereco[4]);
+		return endereco;
 	}
 	public void setEndereco(String endereco) {
-		this.endereco = endereco.split("/[(?: - )(?:, )]/");
+		this.endereco = endereco.split(" - |, ");
 	}
 	public String getNumeroTelefone() {
 		return this.numeroTelefone;

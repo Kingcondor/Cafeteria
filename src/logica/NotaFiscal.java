@@ -5,11 +5,13 @@ import java.util.ArrayList;
 public class NotaFiscal {
 	private LocalDateTime horarioDoPagamento;
 	private Cliente cliente;
+	private Atendente atendente;
 	private ArrayList<String[]> produtosComprados;
 	private double valorTotal;
-	public NotaFiscal(Cliente cliente, ArrayList<String[]> produtosComprados) {
+	public NotaFiscal(Cliente cliente, Atendente atendente, ArrayList<String[]> produtosComprados) {
 		this.horarioDoPagamento = LocalDateTime.now();
 		this.cliente = cliente;
+		this.atendente = atendente;
 		this.produtosComprados = produtosComprados;
 		for (int i = 0; i < this.produtosComprados.size(); i++) {
 			this.valorTotal += Double.parseDouble(this.produtosComprados.get(i)[2]);
@@ -26,6 +28,12 @@ public class NotaFiscal {
 	}
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+	public Atendente getAtendente() {
+		return atendente;
+	}
+	public void setCliente(Atendente atendente) {
+		this.atendente = atendente;
 	}
 	public ArrayList<String[]> getProdutosComprados() {
 		return produtosComprados;

@@ -2,12 +2,12 @@ package logica;
 import java.util.ArrayList;
 
 public class Controlador {
-	private static ArrayList<Cafeteria> cafeterias = new ArrayList<>();
-	private static ArrayList<Produto> produtos = new ArrayList<>();
-	private static ArrayList<Funcionario> funcionarios = new ArrayList<>();
-	private static ArrayList<Cliente> clientes = new ArrayList<>();
-	private static ArrayList<NotaFiscal> notasFiscais = new ArrayList<>();
-	private static boolean verificacaoDePrimeiraVez = true;
+	private static ArrayList<Cafeteria> cafeterias = new ArrayList<Cafeteria>();
+	private static ArrayList<Produto> produtos = new ArrayList<Produto>();
+	private static ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
+	private static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+	private static ArrayList<NotaFiscal> notasFiscais = new ArrayList<NotaFiscal>();
+	private static boolean verificacaoDePrimeiraVez = false;
 	
 	public static ArrayList<Cafeteria> getCafeterias() {
 		return cafeterias;
@@ -37,6 +37,9 @@ public class Controlador {
 			}
 		}
 		return null;
+	}
+	public static Produto getProdutoPosicao(int posicao) {
+		return produtos.get(posicao);
 	}
 	public static void adicionarProduto(String nome, double preco, String descricao, int quantidade) {
 		produtos.add(new Produto(nome, preco, descricao, quantidade));
@@ -80,15 +83,35 @@ public class Controlador {
 		funcionarios.add(new Gerente(nome, salario));
 	}
 	
-	public static void adicionarFuncionarioFinanceiro(String nome, double salario) {
-		funcionarios.add(new FuncionarioFinanceiro(nome, salario));
+	public static void adicionarAtendente(String nome, double salario) {
+		funcionarios.add(new Atendente(nome, salario));
+	}
+	public static ArrayList<Atendente> getAtendentes() {
+		ArrayList<Atendente> atendentes = new ArrayList<Atendente>();
+		for (int i = 0; i<funcionarios.size(); i++) {
+			if (funcionarios.get(i) instanceof Atendente) {
+				atendentes.add((Atendente) funcionarios.get(i));
+			}
+		}
+		return atendentes;
+	}
+	public static Atendente getAtendente(String nome) {
+		for (int i = 0; i<funcionarios.size(); i++) {
+			if (funcionarios.get(i).getNome().equals(nome)) {
+				return (Atendente) funcionarios.get(i);
+			}
+		}
+		return null;
+	}
+	public static Atendente getAtendentePosicao(int posicao) {
+		return (Atendente) funcionarios.get(posicao);
 	}
 	
 	public static ArrayList<Cliente> getClientes() {
 		return clientes;
 	}
 	public static Cliente getCliente(String nome) {
-		for (int i = 0; i<clientes.size(); i++) {
+		for (int i = 0; i < clientes.size(); i++) {
 			if (clientes.get(i).getNome().equals(nome)) {
 				return clientes.get(i);
 			}
@@ -96,7 +119,7 @@ public class Controlador {
 		return null;
 	}
 	public static int getClientePosicao(String nome) {
-		for (int i = 0; i<clientes.size(); i++) {
+		for (int i = 0; i < clientes.size(); i++) {
 			if (clientes.get(i).getNome().equals(nome)) {
 				return i;
 			}
@@ -121,19 +144,32 @@ public class Controlador {
 		}
 		return -1;
 	}
-	public static int getNotaPorCliente(Cliente cliente) {
+	public static NotaFiscal getNotaFiscalPosicao(int posicao) {
+		return notasFiscais.get(posicao);
+	}
+	public static ArrayList<NotaFiscal> getNotasCliente(Cliente cliente) {
+		ArrayList<NotaFiscal> notasFiscaisCliente = new ArrayList<NotaFiscal>();
 		for (int i = 0; i<notasFiscais.size(); i++) {
 			if (notasFiscais.get(i).getCliente().equals(cliente)) {
-				return i;
+				notasFiscaisCliente.add(notasFiscais.get(i));
 			}
 		}
-		return -1;
+		return notasFiscaisCliente;
+	}
+	public static ArrayList<NotaFiscal> getNotasPorAtendente(Atendente atendente) {
+		ArrayList<NotaFiscal> notasFiscaisCliente = new ArrayList<NotaFiscal>();
+		for (int i = 0; i<notasFiscais.size(); i++) {
+			if (notasFiscais.get(i).getAtendente().equals(atendente)) {
+				notasFiscaisCliente.add(notasFiscais.get(i));
+			}
+		}
+		return notasFiscaisCliente;
 	}
 	public static void adicionarNotaFiscal(NotaFiscal notaFiscal) {
 		notasFiscais.add(notaFiscal);
 	}
-	public static void tirarNotaFiscal(NotaFiscal notaFiscal) {
-		notasFiscais.remove(getNotaFiscal(notaFiscal));
+	public static void tirarNotaFiscal(int posicao) {
+		notasFiscais.remove(posicao);
 	}
 	
 	public static boolean getVerificacaoDePrimeiraVez() {

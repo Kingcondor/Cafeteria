@@ -29,10 +29,13 @@ public class Produto {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public int getQuantidadeDoProduto() {
+	public int getQuantidadeProduto() {
 		return quantidadeDoProduto;
 	}
-	public void setQuantidadeDoProduto(int quantidadeDoProduto) {
+	public void setQuantidadeProduto(int quantidadeDoProduto) {
 		this.quantidadeDoProduto = quantidadeDoProduto;
+	}
+	public void subtrairQuantidadeProduto(int quantidade) {
+		this.quantidadeDoProduto -= quantidade;
 	}
 }

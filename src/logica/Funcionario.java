@@ -11,6 +11,8 @@ public class Funcionario extends Pessoa {
 		this.nome = nome;
 		this.salario = salario;
 		this.numeroAlertas = 0;
+		this.alertas = new ArrayList<String>();
+		this.diasDeTrabalho = new ArrayList<LocalDate>();
 	}
 	public double getSalario() {
 		return salario;
@@ -40,22 +42,24 @@ public class Funcionario extends Pessoa {
 		this.numeroAlertas++;
 		this.alertas.add(alerta);
 	}
+	public ArrayList<String> pegarTodosAlertas() {
+		return alertas;
+	}
 	public String pegarAlerta(int alerta) {
 		if (this.numeroAlertas > 0) {
 			return this.alertas.get(alerta);
 		}
 		return "";
 	}
-	public void apagarAlerta(int alerta) {
-		if (this.numeroAlertas > 0) {
-			this.alertas.remove(alerta);
-		}
-	}
 	public int pegarQuantidadeEstoque(Produto produto) {
-		return Controlador.getProduto(produto.getNome()).getQuantidadeDoProduto();
+		return Controlador.getProduto(produto.getNome()).getQuantidadeProduto();
 	}
 	public void avisarChegada() {
-		if (diasDeTrabalho.contains(LocalDate.now())) {
+		if (this.diasDeTrabalho.size() > 0) {
+			if (this.diasDeTrabalho.get(this.diasDeTrabalho.size()-1).equals(LocalDate.now())) {
+				this.diasDeTrabalho.add(LocalDate.now());
+			}
+		}else {
 			this.diasDeTrabalho.add(LocalDate.now());
 		}
 	}
