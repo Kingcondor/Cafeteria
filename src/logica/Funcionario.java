@@ -42,9 +42,6 @@ public class Funcionario extends Pessoa {
 		this.numeroAlertas++;
 		this.alertas.add(alerta);
 	}
-	public ArrayList<String> pegarTodosAlertas() {
-		return alertas;
-	}
 	public String pegarAlerta(int alerta) {
 		if (this.numeroAlertas > 0) {
 			return this.alertas.get(alerta);

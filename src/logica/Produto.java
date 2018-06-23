@@ -35,7 +35,11 @@ public class Produto {
 	public void setQuantidadeProduto(int quantidadeDoProduto) {
 		this.quantidadeDoProduto = quantidadeDoProduto;
 	}
-	public void subtrairQuantidadeProduto(int quantidade) {
-		this.quantidadeDoProduto -= quantidade;
+	public boolean subtrairQuantidadeProduto(int quantidade) {
+		if (this.getQuantidadeProduto() - quantidade >= 0) {
+			this.quantidadeDoProduto -= quantidade;
+			return true;
+		}
+		return false;
 	}
 }

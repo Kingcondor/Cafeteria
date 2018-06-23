@@ -32,7 +32,7 @@ public class NotaFiscal {
 	public Atendente getAtendente() {
 		return atendente;
 	}
-	public void setCliente(Atendente atendente) {
+	public void setAtendente(Atendente atendente) {
 		this.atendente = atendente;
 	}
 	public ArrayList<String[]> getProdutosComprados() {
@@ -46,8 +46,5 @@ public class NotaFiscal {
 	}
 	public void setValorTotal(double valorTotal) {
 		this.valorTotal = valorTotal;
-	}
-	public String toString() {
-		return "O cliente " + this.cliente.getNome() + " fez uma compra no valor de " + this.valorTotal + " no horario: " + this.horarioDoPagamento + ".";
 	}
 }

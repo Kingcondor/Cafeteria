@@ -5,6 +5,7 @@ import logica.Cafeteria;
 import logica.Produto;
 import logica.Atendente;
 import logica.Controlador;
+import logica.NotaFiscal;
 
 public class Teste {
 	public static void main(String[] args) {
@@ -24,7 +25,7 @@ public class Teste {
 		Produto produtoa;
 		ArrayList<String[]> produtoss = new ArrayList<String[]>();
 		produtoss.add(new String[3]);
-		produtoa = Controlador.getProdutoPosicao(0);
+		produtoa = Controlador.getProduto(0);
 		produtoss.get(produtoss.size()-1)[0] = produtoa.getNome();
 		produtoss.get(produtoss.size()-1)[2] = Double.toString(produtoa.getPreco());
 		produtoss.get(produtoss.size()-1)[1] = "3";
@@ -135,7 +136,7 @@ public class Teste {
 			if (Login.getTipo() == 1) {
 				Controlador.getFuncionario(Login.getNome()).avisarChegada();
 				System.out.println("Alertas:\n");
-				ArrayList<String> alertas = Controlador.getFuncionario(Login.getNome()).pegarTodosAlertas();
+				ArrayList<String> alertas = Controlador.getFuncionario(Login.getNome()).getAlertas();
 				for (int i = 0; i < alertas.size(); i++) {
 					System.out.println(i+1 + ") " + alertas.get(i));
 				}
@@ -229,7 +230,7 @@ public class Teste {
 			}else if (Login.getTipo() == 2) { //Funcionario comum
 				Controlador.getFuncionario(Login.getNome()).avisarChegada();
 				System.out.println("Alertas:\n");
-				ArrayList<String> alertas = Controlador.getFuncionario(Login.getNome()).pegarTodosAlertas();
+				ArrayList<String> alertas = Controlador.getFuncionario(Login.getNome()).getAlertas();
 				for (int i = 0; i < alertas.size(); i++) {
 					System.out.println(i+1 + ") " + alertas.get(i));
 				}
@@ -277,7 +278,7 @@ public class Teste {
 			}else if (Login.getTipo() == 3) { //Atendente
 				Controlador.getFuncionario(Login.getNome()).avisarChegada();
 				System.out.println("Alertas:\n");
-				ArrayList<String> alertas = Controlador.getFuncionario(Login.getNome()).pegarTodosAlertas();
+				ArrayList<String> alertas = Controlador.getFuncionario(Login.getNome()).getAlertas();
 				for (int i = 0; i < alertas.size(); i++) {
 					System.out.println(i+1 + ") " + alertas.get(i));
 				}
@@ -343,7 +344,7 @@ public class Teste {
 				}
 			}else if (Login.getTipo() == 4) { //Cliente
 				while (logado) {
-					System.out.println("O que deseja fazer, atendente " + Login.getNome() + "?");
+					System.out.println("O que deseja fazer, senhor(a) " + Login.getNome() + "?");
 					System.out.println("A) Fazer pedido");
 					System.out.println("B) Ver seu nome atual");
 					System.out.println("C) Mudar seu nome");
@@ -357,11 +358,11 @@ public class Teste {
 							System.out.println("Diga qual produto quer da lista abaixo:");
 							Produto produto;
 							for (int i = 0; i < Controlador.getProdutos().size(); i++) {
-								produto = Controlador.getProdutoPosicao(i);
+								produto = Controlador.getProduto(i);
 								System.out.println(i+1 + ") " + produto.getNome() + " - Preço: R$" + produto.getPreco());
 							}
 							produtos.add(new String[3]);
-							produto = Controlador.getProdutoPosicao(scanner.nextInt()-1);
+							produto = Controlador.getProduto(scanner.nextInt()-1);
 							scanner.nextLine();
 							produtos.get(produtos.size()-1)[0] = produto.getNome();
 							produtos.get(produtos.size()-1)[2] = Double.toString(produto.getPreco());
@@ -377,13 +378,22 @@ public class Teste {
 							}
 						}
 						Atendente atendente;
+						ArrayList<Atendente> antendentes = Controlador.getAtendentes();
 						System.out.println("Diga qual atendende quer da lista abaixo:");
-						for (int i = 0; i < Controlador.getAtendentes().size(); i++) {
-							System.out.println(i+1 + ") " + Controlador.getAtendentePosicao(i).getNome());
+						for (int i = 0; i < antendentes.size(); i++) {
+							System.out.println(i+1 + ") " + antendentes.get(i).getNome());
 						}
-						atendente = Controlador.getAtendentePosicao(scanner.nextInt()-1);
+						atendente = antendentes.get(scanner.nextInt()-1);
 						scanner.nextLine();
-						Controlador.getCliente(Login.getNome()).fazerPedido(atendente,produtos);
+						NotaFiscal nota = Controlador.getCliente(Login.getNome()).fazerPedido(atendente,produtos);
+						System.out.println("Nota Fiscal:\n");
+						System.out.println("Horário do pagamento: " + nota.getHorarioDoPagamento());
+						System.out.println("Produtos comprados:\n");
+						for (int i = 0; i < produtos.size(); i++) {
+							System.out.println(produtos.get(i)[0] + ": R$" + Double.toString(Integer.parseInt(produtos.get(i)[1])*Double.parseDouble(produtos.get(i)[2])));
+						}
+						System.out.println();
+						System.out.println("Gasto total: R$" + nota.getValorTotal());
 					}else if (resposta.equalsIgnoreCase("B")) {
 						System.out.println("Seu nome atual é: " + Controlador.getCliente(Login.getNome()).getNome());
 					}else if (resposta.equalsIgnoreCase("C")) {

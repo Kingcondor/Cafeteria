@@ -38,7 +38,7 @@ public class Controlador {
 		}
 		return null;
 	}
-	public static Produto getProdutoPosicao(int posicao) {
+	public static Produto getProduto(int posicao) {
 		return produtos.get(posicao);
 	}
 	public static void adicionarProduto(String nome, double preco, String descricao, int quantidade) {
@@ -103,9 +103,6 @@ public class Controlador {
 		}
 		return null;
 	}
-	public static Atendente getAtendentePosicao(int posicao) {
-		return (Atendente) funcionarios.get(posicao);
-	}
 	
 	public static ArrayList<Cliente> getClientes() {
 		return clientes;
@@ -117,14 +114,6 @@ public class Controlador {
 			}
 		}
 		return null;
-	}
-	public static int getClientePosicao(String nome) {
-		for (int i = 0; i < clientes.size(); i++) {
-			if (clientes.get(i).getNome().equals(nome)) {
-				return i;
-			}
-		}
-		return -1;
 	}
 	public static void adicionarCliente(String nome) {
 		clientes.add(new Cliente(nome));
@@ -144,7 +133,7 @@ public class Controlador {
 		}
 		return -1;
 	}
-	public static NotaFiscal getNotaFiscalPosicao(int posicao) {
+	public static NotaFiscal getNotaFiscal(int posicao) {
 		return notasFiscais.get(posicao);
 	}
 	public static ArrayList<NotaFiscal> getNotasCliente(Cliente cliente) {

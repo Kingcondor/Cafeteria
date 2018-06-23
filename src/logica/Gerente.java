@@ -2,7 +2,7 @@ package logica;
 import java.util.ArrayList;
 
 public class Gerente extends Funcionario {
-	public Gerente (String nome, double salario) {
+	public Gerente(String nome, double salario) {
 		super (nome, salario);
 	}
 	public void contratar(String tipo, String nome, double salario) {

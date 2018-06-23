@@ -5,7 +5,7 @@ public class Cliente extends Pessoa {
 	public Cliente(String nome) {
 		this.nome = nome;
 	}
-	public void fazerPedido(Atendente atendente, ArrayList<String[]> produtosComprados) {
+	public NotaFiscal fazerPedido(Atendente atendente, ArrayList<String[]> produtosComprados) {
 		ArrayList<String[]> produtosEQuantidades = new ArrayList<String[]>();
 		for (int i = 0; i < produtosComprados.size(); i++) {
 			produtosEQuantidades.add(new String[3]);
@@ -16,5 +16,6 @@ public class Cliente extends Pessoa {
 		}
 		NotaFiscal nota = new NotaFiscal(this, atendente, produtosEQuantidades);
 		Controlador.adicionarNotaFiscal(nota);
+		return nota;
 	}
 }
