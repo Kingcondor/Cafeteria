@@ -1,14 +1,15 @@
-Nome do grupo: 
+##Nome do grupo: 
 1. Caio Giovanni Pereira Vasconcelos
 2. Caio Luna Farias
 
-Nome do projeto: 
+##Nome do projeto: 
       Cafeteria
      
-Repositório de código no GITHUB:
+##Repositório de código no GITHUB:
 https://github.com/Kingcondor/Cafeteria.git
 
-Descrição geral do projeto 
+##Descrição geral do projeto
+
 Cafeteria é um programa que visa ser um banco de dados das operações para o estabelecimento, visando o uso do consumidor e do administrador de maneiras distintas, sendo seus modos de operar divididos em três grupos de usuários:
 
 Gerente: Organizar o registro de funcionários e modifica-los se assim desejar (Demissão e contratação de funcionários, registro de pagamento, registro de promoção salarial, registro de comparecimento dos funcionários, estatísticas detalhadas com relação a atividade diária dos clientes e dos funcionários, a quantidade de produtos no estoque, emissão de alertas a todos os usuários (De modo geral e individual), poder de invalidação do pedido mediante erro de solicitação de qualquer usuário);
