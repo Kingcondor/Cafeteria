@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="915.0" prefWidth="1002.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gui.controllers.VerCardapioController">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="912.0" prefWidth="998.0">
+         <children>
+            <Button fx:id="comprarBNT" layoutX="675.0" layoutY="850.0" mnemonicParsing="false" onAction="#comprar" prefHeight="7.0" prefWidth="294.0" text="Comprar itens selecionados">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
+            <TableView fx:id="tableView" editable="true" prefHeight="413.0" prefWidth="998.0">
+               <columns>
+                  <TableColumn fx:id="selectedBNT" prefWidth="190.0" text="Selecione o que deseja" />
+                  <TableColumn fx:id="qnt" prefWidth="175.0" text="Quantidade que deseja" />
+                  <TableColumn fx:id="nome" prefWidth="200.0" text="Nome do produto" />
+                  <TableColumn fx:id="preco" prefWidth="140.0" text="Preço" />
+                  <TableColumn fx:id="descricao" prefWidth="292.0" text="Descrição" />
+               </columns>
+            </TableView>
+            <TableView fx:id="tableView2" editable="true" layoutY="413.0" prefHeight="413.0" prefWidth="998.0">
+               <columns>
+                  <TableColumn fx:id="selectAtendenteBNT" prefWidth="498.0" text="Selecione" />
+                  <TableColumn fx:id="nomeAtendente" prefWidth="489.0" text="Atendentes" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

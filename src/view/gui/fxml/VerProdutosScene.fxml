@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1002.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gui.controllers.VerProdutosController">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="782.0" prefWidth="998.0">
+         <children>
+            <TableView fx:id="tableView" prefHeight="700.0" prefWidth="998.0">
+               <columns>
+                  <TableColumn fx:id="nome" prefWidth="176.0" text="Nome do produto" />
+                  <TableColumn fx:id="preco" prefWidth="141.0" text="Preço" />
+                  <TableColumn fx:id="descricao" prefWidth="329.0" text="Descrição" />
+                  <TableColumn fx:id="qnt" prefWidth="178.0" text="Quantidade em estoque" />
+                  <TableColumn fx:id="modificarBNT" prefWidth="173.0" text="Modificar/Remover" />
+               </columns>
+            </TableView>
+            <Button fx:id="add" layoutX="755.0" layoutY="716.0" mnemonicParsing="false" onAction="#adicionarProduto" prefHeight="45.0" prefWidth="229.0" text="Adicionar novo produto">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

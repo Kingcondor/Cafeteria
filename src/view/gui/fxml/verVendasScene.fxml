@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gui.controllers.VerVendasController">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="698.0">
+         <children>
+            <TableView fx:id="tableView" prefHeight="700.0" prefWidth="698.0">
+               <columns>
+                  <TableColumn fx:id="data" prefWidth="350.0" text="Data da transação" />
+                  <TableColumn fx:id="lucro" prefWidth="348.0" text="Valor da transação" />
+               </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

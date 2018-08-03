@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gui.controllers.CadastroChooseController">
+   <top>
+      <AnchorPane prefHeight="51.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="245.0" prefHeight="65.0" prefWidth="110.0" text="Cadastro" textAlignment="CENTER">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <SplitPane dividerPositions="0.5050167224080268" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="294.0" prefWidth="298.0">
+               <children>
+                  <Button fx:id="clienteBNT" layoutX="-7.0" layoutY="-8.0" mnemonicParsing="false" onAction="#cadastrarCliente" prefHeight="370.0" prefWidth="310.0" text="Cliente">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="358.0" prefWidth="307.0">
+               <children>
+                  <Button fx:id="funcionarioBNT" layoutY="-7.0" mnemonicParsing="false" onAction="#cadastrarFuncionario" prefHeight="370.0" prefWidth="310.0" text="Funcionário">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </center>
+</BorderPane>

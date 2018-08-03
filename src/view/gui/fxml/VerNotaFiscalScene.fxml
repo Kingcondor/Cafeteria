@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gui.controllers.VerNotaFiscalController">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="792.0" prefWidth="698.0">
+         <children>
+            <TableView fx:id="tableView" layoutY="-2.0" prefHeight="702.0" prefWidth="698.0">
+               <columns>
+                  <TableColumn fx:id="nomeDoProduto" prefWidth="341.0" text="Produto" />
+                  <TableColumn fx:id="preco" prefWidth="356.0" text="Preço (ind.)" />
+               </columns>
+            </TableView>
+            <Label layoutX="37.0" layoutY="700.0" prefHeight="46.0" prefWidth="227.0" text="Horario da compra:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="horario" layoutX="253.0" layoutY="700.0" prefHeight="46.0" prefWidth="431.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="37.0" layoutY="732.0" prefHeight="46.0" prefWidth="227.0" text="Preço total:">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="precoTotal" layoutX="253.0" layoutY="732.0" prefHeight="46.0" prefWidth="431.0">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

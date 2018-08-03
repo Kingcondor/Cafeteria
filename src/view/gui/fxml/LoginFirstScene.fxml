@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gui.controllers.LoginFirstController">
+   <bottom>
+      <AnchorPane prefHeight="146.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="textResp" layoutX="21.0" layoutY="83.0" prefHeight="58.0" prefWidth="579.0" />
+         </children>
+      </AnchorPane>
+   </bottom>
+   <top>
+      <Label text="Bem-Vindo" BorderPane.alignment="CENTER">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+   </top>
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="usu" layoutX="219.0" layoutY="53.0" onKeyPressed="#logarKey" prefHeight="38.0" prefWidth="207.0" />
+            <Label layoutX="71.0" layoutY="50.0" prefHeight="43.0" prefWidth="98.0" text="Usuário:" textAlignment="CENTER">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="71.0" layoutY="91.0" prefHeight="43.0" prefWidth="98.0" text="Senha:" textAlignment="CENTER">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="senha" layoutX="219.0" layoutY="94.0" onKeyPressed="#logarKey" prefHeight="38.0" prefWidth="207.0" />
+            <Button fx:id="Entrar" layoutX="472.0" layoutY="79.0" mnemonicParsing="false" onAction="#logarClick" onKeyPressed="#logarKey" prefHeight="19.0" prefWidth="114.0" text="Entrar" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
