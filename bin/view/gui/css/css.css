@@ -1,0 +1,47 @@
+:root {
+	-fx-box-border: #673404;
+	-fx-focus-color: #673404;
+	-fx-font-family: Century Gothic;
+}
+
+Menu:showing {
+	-fx-background-color: #673404;
+	-fx-skin: #673404;
+}
+
+MenuItem:hover {
+	-fx-background-color: #964b00;
+	-fx-cursor: hand;
+	-fx-skin: #673404;
+}
+
+TextField, PasswordField, RadioButton {
+	-fx-box-border: #673404;
+	-fx-focus-color: #7f4005;
+	-fx-faint-focus-color: #7f400522;
+}
+
+Button {
+	-fx-background-color: linear-gradient(to top, #964b00, #a15202);
+	-fx-border-color: #673404;
+	-fx-text-fill: #fff;
+}
+
+Button:hover {
+	-fx-background-color: linear-gradient(to top, #a15202, #b25901);
+	-fx-cursor: hand;
+}
+
+DialogPane:header .header-panel {
+	-fx-background-color: #a15202, linear-gradient(#a15202, derive(#a15202, 30%));
+	-fx-text-background-color: #fff;
+}
+
+TableView TableCell {
+	-fx-accent: #673404;
+	-fx-cell-hover-color: #673404;
+}
+
+Anchorpane:focused, ScrollPane:focused {
+	-fx-border-color: transparent;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane onDragDetected="#demitir" prefHeight="140.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.gui.controllers.DemitirFuncionarioController">
+   <children>
+      <Label layoutX="18.0" layoutY="14.0" prefHeight="57.0" prefWidth="157.0" text="Nome do funcionário:" />
+      <TextField fx:id="nome" layoutX="203.0" layoutY="23.0" onKeyPressed="#demitirKey" prefHeight="40.0" prefWidth="280.0" />
+      <Button layoutX="362.0" layoutY="77.0" mnemonicParsing="false" onAction="#demitirClick" prefHeight="41.0" prefWidth="121.0" text="Demitir">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
